@@ -1,3 +1,7 @@
 .header {
     font-size: 25px;
 }
+
+.header a {
+    margin-left: 50px;
+}
