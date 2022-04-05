@@ -1,8 +1,15 @@
 import React from 'react';
-// import useReviews from '../../hooks/useReviews';
+import { useNavigate } from 'react-router-dom';
+import useReviews from '../../hooks/useReviews';
+import ReviewCard from '../ReviewCard/ReviewCard';
 
 const Home = () => {
-    // const [reviews, setReviews] = useReviews();
+    const [reviews, setReviews] = useReviews();
+
+    const navigate = useNavigate();
+    const handleRoute = () => {
+        navigate('/reviews');
+    }
     return (
         <div>
             <div className='flex'>
@@ -16,10 +23,17 @@ const Home = () => {
             </div>
             <div>
                 <h1 className='text-3xl font-semibold my-12'>Customer Reviews (3)</h1>
-                {/* {
-                    homeReviews.map(review => (<li>{review.name}</li>))
-                } */}
-                <button className='rounded-full bg-red-600 px-6 py-3 text-white text-xl'>See All Reviews</button>
+
+                <div className="flex g-4 mt-5">
+                    {
+                        reviews?.slice(0, 3).map(review => <ReviewCard
+                            review={review}
+                        ></ReviewCard>)
+                    }
+                </div>
+                <div>
+                    <button onClick={handleRoute} className='click-btn m-5 rounded-full bg-red-600 px-4 py-2 text-white text-xl'>See All Reviews</button>
+                </div>
             </div>
         </div>
     );

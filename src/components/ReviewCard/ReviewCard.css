@@ -1,0 +1,14 @@
+.photo img {
+    height: 120px;
+    width: 120px;
+    border-radius: 15px;
+    margin: 2px auto;
+}
+
+.containers {
+    border: 2px solid black;
+    border-radius: 12px;
+    height: 400px;
+    width: 300px;
+    margin: 10px auto;
+}
